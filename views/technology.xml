@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="vista_manage_technology_tree">
+            <field name="name">vista_manage_technology_tree</field>
+            <field name="model">manage.technology</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="photo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="vista_manage_technology_form">
+            <field name="name">vista_manage_technology_form</field>
+            <field name="model">manage.technology</field>
+            <field name="arch" type="xml">
+                <form string="manage_technology">
+                    <sheet>
+                        <group name="group_top">
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="photo"/>
+                                <field name="tasks_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accion_manage_technology_form">
+            <field name="name">manage technologies</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">manage.technology</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Technologies
+                </p>
+                <p> Click <strong> 'Crear' </strong> para añadir nuevos elementos
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Technologies" id="menu_manage_technologies" parent="menu_manage_management" action="accion_manage_technology_form"/>
+    </data>
+</odoo>

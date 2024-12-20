@@ -1,0 +1,6 @@
+<odoo>
+    <data>
+        <menuitem name="Manage" id="menu_manage_raiz"/>
+        <menuitem name="Management" id="menu_manage_management" parent="menu_manage_raiz"/>
+    </data>
+</odoo>
