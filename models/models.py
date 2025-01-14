@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from email.policy import default
 
+
 from odoo import models, fields, api
 import datetime
 
@@ -26,6 +27,11 @@ class task(models.Model):
     definition_date = fields.Datetime(default=lambda p:datetime.datetime.now())
     project = fields.Many2one("manage.project", related="history_id.project_id", readonly=True)
     code = fields.Char(compute="_get_code")
+    developer_ids = fields.Many2many(
+        'res.partner',
+        string='Desarrolladores',
+        help="Desarrolladores asignados a la tarea"
+    )
 
 class sprint(models.Model):
     _name='manage.sprint'

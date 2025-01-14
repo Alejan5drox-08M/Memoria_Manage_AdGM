@@ -32,8 +32,15 @@
                                 <field name="history_id"/>
                                 <field name="technology_id"/>
                                 <field name="definition_date"/>
+                                <field name="developer_ids"/>
                         </group>
                     </sheet>
+                    <footer>
+                        <button name="action_print_task_report"
+                                string="Generar PDF"
+                                type="object"
+                                class="btn-primary"/>
+                    </footer>
                 </form>
             </field>
         </record>
