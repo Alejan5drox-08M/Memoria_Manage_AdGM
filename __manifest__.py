@@ -33,6 +33,7 @@
         'views/history.xml',
         'views/technology.xml',
         'views/developer.xml',
+        'views/report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

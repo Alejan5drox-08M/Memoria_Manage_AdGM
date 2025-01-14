@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+    <report
+        id="task_report"
+        model="manage.task"
+        string="Reporte de Tarea"
+        report_type="qweb-pdf"
+        name="manage.report_task_template"
+    />
+
+    <template id="report_task_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="doc">
+                    <div>
+                        <h2>Tarea: <span t-field="doc.name"/></h2>
+                        <p><strong>Descripción:</strong> <span t-field="doc.description"/></p>
+                        <p><strong>Fecha de Inicio:</strong> <span t-field="doc.start_date"/></p>
+                        <p><strong>Fecha de Fin:</strong> <span t-field="doc.end_date"/></p>
+                        <p><strong>¿Pausada?:</strong> <span t-field="doc.is_paused"/></p>
+                        <p><strong>Historia:</strong> <span t-field="doc.history_id.name"/></p>
+                        <p><strong>Proyecto:</strong> <span t-field="doc.project.name"/></p>
+                        <p><strong>Tecnologías utilizadas:</strong></p>
+                        <ul>
+                            <t t-foreach="doc.technology_id" t-as="tech">
+                                <li><span t-field="tech.name"/></li>
+                            </t>
+                        </ul>
+                        <p><strong>Desarrolladores asignados:</strong></p>
+                        <ul>
+                            <t t-foreach="doc.developer_ids" t-as="dev">
+                                <li><span t-field="dev.name"/></li>
+                            </t>
+                        </ul>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    </data>
+</odoo>
